@@ -1,9 +1,6 @@
 import random
-
 def guess_the_letter():
     print("Welcome to the letter guessing game!")
-    
-    # Assign a random letter to guess
     letter_to_guess = random.choice('abcdefghijklmnopqrstuvwxyz')
     
     attempt = 0
