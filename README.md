@@ -1,16 +1,31 @@
 import random
+
 def guess_the_letter():
-print("welcome to the letter guessing game")
-letter_to_guess
-random.choice('a, z')
-attempt = 0
-while true:
-try:
-guess= input ("guess a letter between a and z:")
-attempt+=1
-if guess< letter_to_guess:
-print("too high!try again ")
-else:
-print(f"congratulations!you guessed the letter correctly'{letter_to_guess}'in{attempt}attempt!")
-break 
-print("enter a valid letter")
+    print("Welcome to the letter guessing game!")
+    
+    # Assign a random letter to guess
+    letter_to_guess = random.choice('abcdefghijklmnopqrstuvwxyz')
+    
+    attempt = 0
+    
+    while True:
+        try:
+            guess = input("Guess a letter between 'a' and 'z': ").lower()
+            attempt += 1
+            
+            if not guess.isalpha() or len(guess) != 1:
+                print("Enter a valid single letter.")
+                continue
+            
+            if guess < letter_to_guess:
+                print("Too low! Try again.")
+            elif guess > letter_to_guess:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed the letter correctly: '{letter_to_guess}' in {attempt} attempt(s)!")
+                break
+        
+        except Exception as e:
+            print("An error occurred:", e)
+
+guess_the_letter()
